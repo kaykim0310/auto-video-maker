@@ -1,10 +1,6 @@
-streamlit==1.31.1
+streamlit
 moviepy==1.0.3
-pandas==2.0.3
-numpy==1.24.3
-pillow==10.0.1
-imageio-ffmpeg==0.4.9
-imageio==2.31.1
-decorator==4.4.2
-proglog==0.1.10
-tqdm==4.66.1
+pandas
+numpy<2
+pillow
+imageio-ffmpeg
