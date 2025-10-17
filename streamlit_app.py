@@ -3,10 +3,11 @@ import pandas as pd
 import tempfile, os, io, re, gc
 import logging
 
-# PIL.Image ANTIALIAS 호환성 패치 (Pillow 10.0+ 대응)
-from PIL import Image
-if not hasattr(Image, 'ANTIALIAS'):
-    Image.ANTIALIAS = Image.LANCZOS
+# PIL.Image ANTIALIAS 호환성 패치 (반드시 moviepy import 전에 실행)
+import PIL.Image
+if not hasattr(PIL.Image, 'ANTIALIAS'):
+    PIL.Image.ANTIALIAS = PIL.Image.LANCZOS
+    PIL.Image.ANTIALIAS = 1  # 또는 숫자값으로도 설정
 
 from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
 
