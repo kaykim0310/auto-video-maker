@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
 import tempfile, os, io, re, gc
-from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
 import logging
+
+# PIL.Image ANTIALIAS 호환성 패치 (Pillow 10.0+ 대응)
+from PIL import Image
+if not hasattr(Image, 'ANTIALIAS'):
+    Image.ANTIALIAS = Image.LANCZOS
+
+from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
 
 # 로깅 설정
 logging.basicConfig(level=logging.INFO)
